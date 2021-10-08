@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/imgs">
+        <file>FM_mask.png</file>
+        <file>lock_closed.png</file>
+        <file>lock_open.png</file>
+        <file>logo.png</file>
+        <file>sew1.png</file>
+    </qresource>
+</RCC>
