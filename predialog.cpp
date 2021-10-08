@@ -270,9 +270,9 @@ void preDialog::setupSliderUI(float _mi, float _ma, float _bi)
     QPixmap pix=pPixItem->pixmap();
     pix.fill(Qt::black);
     QPainter pain(&pix);
-    pain.setPen(QPen(Qt::white,1));
+    pain.setPen(QPen(Qt::white,2));
     pain.setBrush(Qt::red);
-    pain.drawRect(QRectF((_min-_scaleMin)/br,5,(_max-_min)/br,8));
+    pain.drawRect(QRectF((_min-_scaleMin)/br,5,(_max-_min)/br,10));
     pain.end();
     pPixItem->setPixmap(pix);
     time->start();

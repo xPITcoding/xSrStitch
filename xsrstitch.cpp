@@ -189,6 +189,11 @@ void xSrstitch::on_pButton_slicePreview_clicked()
 
 void xSrstitch::on_pButton_Go_clicked()
 {
+    _tData.clear();
+    maxList.clear();
+    showIMGs.clear();
+    ui->pButton_Plot->setEnabled(false);
+    ui->pButtonShowImgs->setEnabled(false);
 
     if(ui->pSpinBox_voxelsize->value()==0.0 && ui->pSpinBox_stackOverlap->value()==0.0 && ui->pSpinBox_Ref->value()==0 && ui->pSpinBox_Match->value()==0)
     {
@@ -288,8 +293,7 @@ void xSrstitch::on_pButton_Go_clicked()
             {
                 newPoint.setX(ui->pSpinBox_Match->value()-ui->pSpinBox_Range->value() +i);
                 newPoint.setY(_dataList[i]->corrValue);
-                tempList->append(newPoint);
-               // ui->pTextBrowser->append("  mx:  "+QString("%1").arg(_dataList.at(i)->mx)+"  my:  "+QString("%1").arg(_dataList.at(i)->my)+"  ofx:  "+QString("%1").arg(_dataList.at(i)->ofx)+"  ofy:  "+QString("%1").arg(_dataList.at(i)->ofy)+"  rot:  "+QString("%1").arg(_dataList.at(i)->rot)+"  val:  "+QString("%1").arg((float)_dataList.at(i)->corrValue));
+                tempList->append(newPoint);               
                 if (newPoint.y()>oldPoint.y())
                    {
                     oldPoint=newPoint;
@@ -314,11 +318,12 @@ void xSrstitch::on_pButton_Go_clicked()
             temp.transY=_dataList[j]->ofy;
             temp.angle= _dataList[j]->rot;
             _tData.append(temp);
-
-            ui->pTextBrowser->append("maximum CORR at slice:  "+ QString("%1").arg(oldPoint.x())+ "  val:  "+QString("%1").arg(oldPoint.y()));
-            ui->pTextBrowser->append("rot:  "+ QString("%1").arg(_dataList[j]->rot)+
-                                    "   trans X:  "+ QString("%1").arg(_dataList[j]->ofx)+
-                                    "   trans Y:  "+ QString("%1").arg(_dataList[j]->ofy));
+            if(oldPoint.x()==0 || oldPoint.x()==maxList.at(a)->count()-1)
+                QMessageBox::warning(this,"Warning","Correlation maximum at slice "+QString("%1").arg(oldPoint.x())+ ". Please adjust matching subStack slice.");
+            ui->pTextBrowser->append("Correlation maximum at slice:  "+ QString("%1").arg(oldPoint.x())+ "  val:  "+QString("%1").arg(oldPoint.y()));
+            ui->pTextBrowser->append("rotation angle:  "+ QString("%1").arg(_dataList[j]->rot)+
+                                    "   translation X:  "+ QString("%1").arg(_dataList[j]->ofx)+
+                                    "   translation Y:  "+ QString("%1").arg(_dataList[j]->ofy));
             QList<QImage>* tempImgList =new QList<QImage>;
             tempImgList->append(_dataList[j]->I1);
             tempImgList->append(_dataList[j]->I2result);
@@ -587,14 +592,14 @@ void xSrstitch::CopyTransfer()
 
 void xSrstitch::clearAll()
 {
-    maxList.clear();
+
     _maxGlobal=0.0;
     _minGlobal=0.0;
     _binGlobal=0.0;
     FMscale=0;
     _dirList.clear();
     _tData.clear();
-
+    maxList.clear();
     showIMGs.clear();
     subStackNames.clear();
 

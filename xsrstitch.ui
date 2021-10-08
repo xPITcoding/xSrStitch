@@ -494,9 +494,9 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>11</x>
+     <x>16</x>
      <y>10</y>
-     <width>831</width>
+     <width>826</width>
      <height>57</height>
     </rect>
    </property>
@@ -504,7 +504,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="pL_InputDir">
       <property name="text">
-       <string>Select Input Dir of Dirs</string>
+       <string>Select input dir of dirs</string>
       </property>
      </widget>
     </item>
@@ -521,7 +521,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="pL_OutputDir">
       <property name="text">
-       <string>Select Output Dir</string>
+       <string>Select output dir</string>
       </property>
      </widget>
     </item>
@@ -559,9 +559,9 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>4</x>
+      <x>9</x>
       <y>40</y>
-      <width>261</width>
+      <width>256</width>
       <height>174</height>
      </rect>
     </property>
@@ -576,7 +576,7 @@
      <item row="8" column="0">
       <widget class="QLabel" name="pL_Match">
        <property name="text">
-        <string>matching from start</string>
+        <string>Matching from start</string>
        </property>
       </widget>
      </item>
@@ -586,7 +586,7 @@
      <item row="9" column="0">
       <widget class="QLabel" name="pL_Range">
        <property name="text">
-        <string>set search Range</string>
+        <string>Set search range</string>
        </property>
       </widget>
      </item>
@@ -650,7 +650,7 @@
      <item row="5" column="0" rowspan="3">
       <widget class="QLabel" name="pL_Ref">
        <property name="text">
-        <string>reference from bottom</string>
+        <string>Reference from bottom</string>
        </property>
       </widget>
      </item>
@@ -675,8 +675,8 @@
    <widget class="QToolButton" name="pRadioLock">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>218</y>
+      <x>225</x>
+      <y>215</y>
       <width>41</width>
       <height>31</height>
      </rect>
@@ -704,7 +704,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>340</y>
+     <y>345</y>
      <width>271</width>
      <height>78</height>
     </rect>
@@ -712,41 +712,34 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QPushButton" name="pButton_slicePreview">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>44</y>
-      <width>251</width>
-      <height>20</height>
+      <y>5</y>
+      <width>256</width>
+      <height>70</height>
      </rect>
     </property>
-    <property name="text">
-     <string>show Preview slices</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="pL_selectSubFolder">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>15</y>
-      <width>171</width>
-      <height>19</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>select Preview Subfolder</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="pComboBox_selectSubFolder">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>15</y>
-      <width>81</width>
-      <height>20</height>
-     </rect>
-    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="pL_selectSubFolder">
+       <property name="text">
+        <string>select preview subfolder:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="pComboBox_selectSubFolder"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pButton_slicePreview">
+       <property name="text">
+        <string>show Preview slices</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QProgressBar" name="progressBar">
